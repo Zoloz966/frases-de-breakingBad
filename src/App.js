@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import Frase from "./components/Frase";
 import styled from '@emotion/styled'
 
 const Contenedor = styled.div`
@@ -21,15 +22,21 @@ const Boton = styled.button`
 
 function App() {
 
+  // State de frases
+  const [frase, guardarFrase] = useState({});
+
   const consultarAPI = async () => {
     const api = await fetch('https://api.breakingbadquotes.xyz/v1/quotes');
     const frase = await api.json();
-    console.log(frase[0]);
+    guardarFrase(frase[0]);
   };
 
 
   return (
     <Contenedor>
+      <Frase 
+        frase = {frase}
+      />
       <Boton
         onClick={consultarAPI}
       >
