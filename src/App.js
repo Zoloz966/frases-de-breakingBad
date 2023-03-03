@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Frase from "./components/Frase";
 import styled from '@emotion/styled'
+import logo from './assets/Logo.png'
 
 const Contenedor = styled.div`
   display: flex;
@@ -11,10 +12,10 @@ const Contenedor = styled.div`
 
 const Boton = styled.button`
   background: -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
-  background-size: 300px;
+  background-size: 305px; 
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  margin-top: 3rem;
+  margin-top: 1rem;
   padding: 1rem 3rem;
   font-size: 2rem;
   border: 2px solid black;
@@ -25,6 +26,13 @@ const Boton = styled.button`
       background-size: 400px;
     }
 `;
+
+const Logo = styled.img`
+  height: 400px;
+  top: -120px;
+  display: block;
+  position: relative;
+`
 
 function App() {
 
@@ -45,6 +53,9 @@ function App() {
 
   return (
     <Contenedor>
+      <Logo 
+        src={logo}
+      />
       <Frase 
         frase = {frase}
       />
